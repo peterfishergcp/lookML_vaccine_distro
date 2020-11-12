@@ -1,20 +1,6 @@
-view: county_14d {
-  sql_table_name: `bigquery-public-data.covid19_public_forecasts.county_14d`
+view: state_28d {
+  sql_table_name: `bigquery-public-data.covid19_public_forecasts.state_28d`
     ;;
-
-  dimension: county_fips_code {
-    type: string
-    map_layer_name: us_counties_fips
-##  label: {{ county_name._value }} ;;
-    label: "{{ county_name._value }} "
-    html: {{ county_name._value }} ;;
-    sql: ${TABLE}.county_fips_code ;;
-  }
-
-  dimension: county_name {
-    type: string
-    sql: ${TABLE}.county_name ;;
-  }
 
   dimension: cumulative_confirmed {
     type: number
@@ -59,6 +45,16 @@ view: county_14d {
   dimension: hospitalized_patients_ground_truth {
     type: number
     sql: ${TABLE}.hospitalized_patients_ground_truth ;;
+  }
+
+  dimension: intensive_care_patients {
+    type: number
+    sql: ${TABLE}.intensive_care_patients ;;
+  }
+
+  dimension: intensive_care_patients_ground_truth {
+    type: number
+    sql: ${TABLE}.intensive_care_patients_ground_truth ;;
   }
 
   dimension: new_confirmed {
@@ -106,24 +102,29 @@ view: county_14d {
     sql: ${TABLE}.recovered_documented_ground_truth ;;
   }
 
+  dimension: state_fips_code {
+    type: string
+    sql: ${TABLE}.state_fips_code ;;
+  }
+
   dimension: state_name {
     type: string
     map_layer_name: us_states
-    drill_fields: [county_fips_code]
     sql: ${TABLE}.state_name ;;
   }
-  dimension: distinct_key {
-    sql: ${county_fips_code} || ${prediction_date}  ;;
-  }
-  measure: count {
-    type: count
-    drill_fields: [county_name, state_name]
+
+  dimension: ventilator_patients {
+    type: number
+    sql: ${TABLE}.ventilator_patients ;;
   }
 
-  measure: sum_new_confirmed {
-    type: sum_distinct
-    value_format_name: decimal_0
-    sql_distinct_key: ${distinct_key} ;;
-    sql: ${new_confirmed} ;;
+  dimension: ventilator_patients_ground_truth {
+    type: number
+    sql: ${TABLE}.ventilator_patients_ground_truth ;;
+  }
+
+  measure: count {
+    type: count
+    drill_fields: [state_name]
   }
 }

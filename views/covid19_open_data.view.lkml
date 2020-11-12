@@ -167,14 +167,9 @@ view: covid19_open_data {
     sql: ${TABLE}.new_confirmed ;;
   }
 
-  # dimension: new_deceased {
-  #   type: number
-  #   sql: ${TABLE}.new_deceased ;;
-  # }
-
-  measure: new_deceased {
-    type: sum
-    # sql: ${TABLE}.new_deceased ;;
+  dimension: new_deceased {
+    type: number
+    sql: ${TABLE}.new_deceased ;;
   }
 
   dimension: new_hospitalized_patients {
@@ -219,7 +214,12 @@ view: covid19_open_data {
 
   dimension: subregion1_code {
     type: string
-    sql: ${TABLE}.subregion1_code ;
+    sql: ${TABLE}.subregion1_code ;;
+  }
+
+  dimension: subregion1_name {
+    type: string
+    sql: ${TABLE}.subregion1_name ;;
   }
 
   dimension: subregion2_code {
@@ -232,17 +232,13 @@ view: covid19_open_data {
     sql: ${TABLE}.subregion2_name ;;
   }
 
-  dimension: subregion1_name {
-    type: string
-    sql: ${TABLE}.subregion1_name ;;
-  }
-
   dimension: wikidata_id {
     type: string
     sql: ${TABLE}.wikidata_id ;;
   }
 
-   measure: count {
-    type: count drill_fields: [country_name, subregion1_name, subregion2_name, ]
+  measure: count {
+    type: count
+    drill_fields: [country_name, subregion1_name, subregion2_name]
   }
 }

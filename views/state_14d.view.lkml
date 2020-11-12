@@ -67,24 +67,16 @@ view: state_14d {
     sql: ${TABLE}.new_confirmed_ground_truth ;;
   }
 
-  # dimension: new_deaths {
-  #   type: number
-  #   sql: ${TABLE}.new_deaths ;;
-  # }
-  measure: new_deaths {
-    type: sum
-    # sql: ${TABLE}.new_deceased ;;
+  dimension: new_deaths {
+    type: number
+    sql: ${TABLE}.new_deaths ;;
   }
 
-
-  # dimension: new_deaths_ground_truth {
-  #   type: number
-  #   sql: ${TABLE}.new_deaths_ground_truth ;;
-  # }
-
-  measure: new_deaths_ground_truth {
-    type: sum
+  dimension: new_deaths_ground_truth {
+    type: number
+    sql: ${TABLE}.new_deaths_ground_truth ;;
   }
+
   dimension_group: prediction {
     type: time
     timeframes: [
@@ -117,6 +109,7 @@ view: state_14d {
 
   dimension: state_name {
     type: string
+    map_layer_name: us_states
     sql: ${TABLE}.state_name ;;
   }
 
