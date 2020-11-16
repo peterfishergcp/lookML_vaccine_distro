@@ -12,7 +12,6 @@ persist_with: pf_vaccine_default_datagroup
 
 
 explore: state_14d {
-
   join: covid19_open_data {
     type: left_outer
     sql_on: ${covid19_open_data.subregion1_name}=${state_14d.state_name} and ${covid19_open_data.date_date}=${state_14d.prediction_date};;
@@ -27,7 +26,6 @@ explore: state_14d {
 }
 
 explore: state_28d {
-
   join: covid19_open_data {
     type: left_outer
     sql_on: ${covid19_open_data.subregion1_name}=${state_28d.state_name} and ${covid19_open_data.date_date}=${state_28d.prediction_date};;
