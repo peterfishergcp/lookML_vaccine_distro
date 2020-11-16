@@ -14,8 +14,8 @@ view: county_14d_grouped {
     sql: ${TABLE}.county_name ;;
   }
 
-  dimension: sum_new_confirmed {
-    type: number
+  measure: sum_new_confirmed {
+    type: sum
     value_format_name: decimal_0
     sql: ${TABLE}.sum_new_confirmed ;;
   }
