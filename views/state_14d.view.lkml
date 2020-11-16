@@ -1,6 +1,13 @@
 view: state_14d {
-  sql_table_name: `bigquery-public-data.covid19_public_forecasts.state_14d`
+  sql_table_name: bigquery-public-data.covid19_public_forecasts.state_14d
     ;;
+
+  dimension: pk {
+    primary_key: yes
+    hidden: yes
+    type: string
+    sql: concat(cast(${prediction_raw} as string),'|',cast(${state_name} as string)) ;;
+  }
 
   dimension: cumulative_confirmed {
     type: number
@@ -126,5 +133,59 @@ view: state_14d {
   measure: count {
     type: count
     drill_fields: [state_name]
+  }
+
+  measure: actual_active_cases {
+    type: sum
+    sql:${cumulative_confirmed_ground_truth} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: actual_deaths {
+    type: sum
+    sql:${cumulative_deaths_ground_truth} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: actual_hospitalized {
+    type: sum
+    sql:${hospitalized_patients_ground_truth} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: sum_hospitalized_patients {
+    type: sum
+    sql:${hospitalized_patients} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: max_hospitalized_patients {
+    type: max
+    sql:${hospitalized_patients} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: sum_intensive_care_patients {
+    type: sum
+    sql: ${intensive_care_patients} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: max_intensive_care_patients {
+    type: max
+    sql: ${intensive_care_patients} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: sum_ventilator_patients {
+    type: sum
+    sql: ${ventilator_patients} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: max_ventilator_patients {
+    type: max
+    sql: ${ventilator_patients} ;;
+    value_format_name: decimal_0
   }
 }
