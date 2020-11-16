@@ -11,34 +11,6 @@ datagroup: pf_vaccine_default_datagroup {
 persist_with: pf_vaccine_default_datagroup
 
 
-explore: state_14d {
-  join: covid19_open_data {
-    type: left_outer
-    sql_on: ${covid19_open_data.subregion1_name}=${state_14d.state_name} and ${covid19_open_data.date_date}=${state_14d.prediction_date};;
-    relationship: one_to_one
-  }
-  fields: [covid19_open_data.date_date,
-    covid19_open_data.new_deceased,
-    state_14d.new_deaths_ground_truth,
-    state_14d.state_name
-  ]
-  label: "state_14d"
-}
-
-explore: state_28d {
-  join: covid19_open_data {
-    type: left_outer
-    sql_on: ${covid19_open_data.subregion1_name}=${state_28d.state_name} and ${covid19_open_data.date_date}=${state_28d.prediction_date};;
-    relationship: one_to_one
-  }
-  fields: [covid19_open_data.date_date,
-    covid19_open_data.new_deceased,
-    state_28d.new_deaths_ground_truth,
-    state_28d.state_name
-  ]
-  label: "state_28d"
-}
-
 explore: hospital_general_info {
   join: county_14d {
     relationship: one_to_many
@@ -64,6 +36,8 @@ explore: county_28d {}
 explore: covid19_open_data {}
 explore: hostpitals_capacity {}
 explore: jjl_capacity {}
+explore: state_14d {}
+explore: state_28d {}
 explore: state_fips {}
 explore: symptom_search_weekly_county {}
 explore: symptom_search_weekly_state {}
