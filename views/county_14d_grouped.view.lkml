@@ -16,6 +16,7 @@ view: county_14d_grouped {
 
   dimension: sum_new_confirmed {
     type: number
+    value_format_name: decimal_0
     sql: ${TABLE}.sum_new_confirmed ;;
   }
 }
