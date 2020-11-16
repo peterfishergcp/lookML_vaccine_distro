@@ -22,7 +22,7 @@ explore: state_14d {
     state_14d.new_deaths_ground_truth,
     state_14d.state_name
   ]
-  label: "plot"
+  label: "state_14d"
 }
 
 explore: state_28d {
@@ -36,7 +36,7 @@ explore: state_28d {
     state_28d.new_deaths_ground_truth,
     state_28d.state_name
   ]
-  label: "plot"
+  label: "state_28d"
 }
 
 explore: hospital_general_info {
