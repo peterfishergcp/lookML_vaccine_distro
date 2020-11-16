@@ -193,6 +193,11 @@ dimension: state_name {
     url: "/dashboards-next//864?County+Name=&State+Name={{ value }}"
     icon_url: "http://www.looker.com/favicon.ico"
   }
+  link: {
+    label: "{{value}} State Covid News"
+    url: "https://news.google.com/search?q={{ value }}+covid&hl=en-US&gl=US&ceid=US:en"
+    icon_url: "http://www.looker.com/favicon.ico"
+  }
 }
 dimension: distinct_key {
   sql: ${county_fips_code} || ${prediction_date}  ;;
