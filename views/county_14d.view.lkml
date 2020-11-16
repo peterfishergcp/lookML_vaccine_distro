@@ -196,7 +196,7 @@ dimension: state_name {
   link: {
     label: "{{value}} State Covid News"
     url: "https://news.google.com/search?q={{ value }}+covid&hl=en-US&gl=US&ceid=US:en"
-    icon_url: "http://www.looker.com/favicon.ico"
+    icon_url: "https://www.google.com/s2/favicons?domain_url=http://www.news.google.com"
   }
 }
 dimension: distinct_key {
