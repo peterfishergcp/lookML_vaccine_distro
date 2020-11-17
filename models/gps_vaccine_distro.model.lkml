@@ -10,7 +10,13 @@ datagroup: pf_vaccine_default_datagroup {
 
 persist_with: pf_vaccine_default_datagroup
 
-
+explore: state_14d{
+join: county_14d {
+  relationship: one_to_many
+  sql_on: lower(${county_14d.state_name}) = lower(${state_14d.state_name});;
+  type: left_outer
+}
+}
 explore: hospital_general_info {
   join: county_14d {
     relationship: one_to_many
@@ -36,7 +42,6 @@ explore: county_28d {}
 explore: covid19_open_data {}
 explore: hostpitals_capacity {}
 explore: jjl_capacity {}
-explore: state_14d {}
 explore: state_28d {}
 explore: state_fips {}
 explore: symptom_search_weekly_county {}
