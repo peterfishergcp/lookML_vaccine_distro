@@ -190,7 +190,7 @@ dimension: state_name {
   sql: ${TABLE}.state_name ;;
   link: {
     label: "{{value}} State Dashboard"
-    url: "/dashboards-next//864?County+Name=&State+Name={{ value }}"
+    url: "/dashboards-next//864?State+Name={{ value }}"
     icon_url: "http://www.looker.com/favicon.ico"
   }
   link: {
