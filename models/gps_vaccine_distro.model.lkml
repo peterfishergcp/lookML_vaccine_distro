@@ -35,14 +35,11 @@ explore: hospital_general_info {
 
 
 explore: ca_healthcare_facilities {}
-explore: chain_pharmacy {}
 explore: county_14d {}
 explore: county_14d_grouped {}
 explore: county_28d {}
 explore: covid19_open_data {}
 explore: hostpitals_capacity {}
-explore: jjl_capacity {}
 explore: state_28d {}
-explore: state_fips {}
 explore: symptom_search_weekly_county {}
 explore: symptom_search_weekly_state {}
