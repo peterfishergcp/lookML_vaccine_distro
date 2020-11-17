@@ -35,7 +35,7 @@ link: {
 ***Please Note - You would need to update the dashboard number that you want to link to. In this example /dashboards-next/864?State+Name={{ value }} would need to updated to have /dashboards-next/yourdashboardnumber?State+Name={{ value }}
 
 
-[State Drill In and Out](https://github.com/peterfishergcp/GlobalPublicSector/blob/main/State%2BLocal/COVID-19%20Vaccination/vaccine_distro/images/Drillintoandout.png)
+![State Drill In and Out](https://github.com/peterfishergcp/GlobalPublicSector/blob/main/State%2BLocal/COVID-19%20Vaccination/vaccine_distro/images/Drillintoandout.png)
 
 [More Information and Examples - Linking in Looker](https://docs.looker.com/reference/field-params/link)
 [More Information and Examples - Custom-Drilling-Using-HTML-and-Link](https://help.looker.com/hc/en-us/articles/360001288228-Custom-Drilling-Using-HTML-and-Link)
