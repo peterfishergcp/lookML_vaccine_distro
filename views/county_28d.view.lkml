@@ -182,6 +182,35 @@ view: county_28d {
     value_format_name: decimal_0
   }
 
+  measure: sumcumulative_confirmed {
+    label: "cumulative_confirmed"
+    type: number
+    value_format_name: decimal_0
+    sql: SUM(${cumulative_confirmed}) ;;
+  }
 
+  dimension: cumulative_confirmed_q0025 {
+    type: number
+    sql: ${TABLE}.cumulative_confirmed_q0025 ;;
+  }
+
+  measure: sumcumulative_confirmedlower {
+    label: "cumulative_confirmed lower bound"
+    type: number
+    value_format_name: decimal_0
+    sql: SUM(${cumulative_confirmed_q0025}) ;;
+  }
+
+  dimension: cumulative_confirmed_q0975 {
+    type: number
+    sql: ${TABLE}.cumulative_confirmed_q0975 ;;
+  }
+
+  measure: sumcumulative_confirmedupper {
+    label: "cumulative_confirmed Upper bound"
+    type: number
+    value_format_name: decimal_0
+    sql: SUM(${cumulative_confirmed_q0975}) ;;
+  }
 
   }

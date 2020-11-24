@@ -288,6 +288,4 @@ measure: max_hospitalized_patients {
   sql:${hospitalized_patients} ;;
   value_format_name: decimal_0
 }
-
-
 }
