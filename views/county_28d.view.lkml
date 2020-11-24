@@ -120,10 +120,68 @@ view: county_28d {
       drill_fields: [county_name, state_name]
     }
 
-    measure: sum_new_confirmed {
-      type: sum_distinct
-      value_format_name: decimal_0
-      sql_distinct_key: ${distinct_key} ;;
-      sql: ${new_confirmed} ;;
-    }
+
+  measure: sum_new_confirmed {
+    label: "New Confirmed"
+    type: number
+    value_format_name: decimal_0
+    sql: SUM(${new_confirmed}) ;;
+  }
+
+
+  measure: sum_new_deaths {
+    label: "New Deaths"
+    type: number
+    value_format_name: decimal_0
+    sql: SUM(${new_deaths}) ;;
+  }
+
+  measure: sum_new_deaths_ground_truth {
+    label: "Historic Daily Deaths"
+    type: number
+    value_format_name: decimal_0
+    sql: SUM(${new_deaths_ground_truth}) ;;
+  }
+
+  measure: sum_cumulative_confirmed_ground_truth {
+    label: "Historic Confirmed Cases"
+    type: number
+    sql: sum(${cumulative_confirmed_ground_truth}) ;;
+  }
+
+  measure: sum_cumulative_deaths_ground_truth {
+    label: "Historic Confirmed Deaths"
+    type: number
+    sql: sum(${cumulative_deaths_ground_truth}) ;;
+  }
+
+  measure: sum_new_confirmed_ground_truth {
+    label: "Historic Daily Cases"
+    type: number
+    sql: sum(${new_confirmed_ground_truth}) ;;
+  }
+
+  measure: sum_hospitalized_patients {
+    label: "Hospitalized Patients"
+    type: number
+    sql:SUM(${hospitalized_patients}) ;;
+    value_format_name: decimal_0
+  }
+
+
+  measure: sum_hospitalized_patients_ground_truths {
+    label: "Historic Hospitalized Patients"
+    type: number
+    value_format_name: decimal_0
+    sql: SUM(${hospitalized_patients_ground_truth}) ;;
+  }
+
+  measure: max_hospitalized_patients {
+    type: max
+    sql:${hospitalized_patients} ;;
+    value_format_name: decimal_0
+  }
+
+
+
   }
