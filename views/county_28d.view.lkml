@@ -220,16 +220,16 @@ view: county_28d {
     sql: SUM(${cumulative_deaths}) ;;
   }
 
-  dimension: deaths_confirmed_q0025 {
+  dimension: cumulative_deaths_q0025 {
     type: number
-    sql: ${TABLE}.cumulative_deaths_q0025 ;;
+    sql: ${TABLE}.cumulative_deaths_q0025;;
   }
 
   measure: deaths_confirmlower {
     label: "cumulative_deaths lower bound"
     type: number
     value_format_name: decimal_0
-    sql: SUM(${cumulative_confirmed_q0025}) ;;
+    sql: SUM(${cumulative_deaths_q0025}) ;;
   }
 
   dimension: cumulative_deaths_q0975 {
@@ -241,7 +241,7 @@ view: county_28d {
     label: "cumulative_deaths Upper bound"
     type: number
     value_format_name: decimal_0
-    sql: SUM(${cumulative_confirmed_q0975}) ;;
+    sql: SUM(${cumulative_deaths_q0975}) ;;
   }
 
   dimension: new_confirmed_7day_rolling {
@@ -253,7 +253,7 @@ view: county_28d {
     label: "new_confirmed_7day_rolling"
     type: number
     value_format_name: decimal_0
-    sql:SUM${new_confirmed_7day_rolling} ;;
+    sql:${new_confirmed_7day_rolling} ;;
   }
 
   dimension: new_deaths_7day_rolling {
@@ -265,8 +265,7 @@ view: county_28d {
     label: "new_deaths_7day_rolling"
     type: number
     value_format_name: decimal_0
-    sql:SUM${new_deaths_7day_rolling} ;;
+    sql:${new_deaths_7day_rolling} ;;
 
   }
   }
-
