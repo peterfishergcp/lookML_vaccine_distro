@@ -253,7 +253,7 @@ view: county_28d {
     label: "new_confirmed_7day_rolling"
     type: number
     value_format_name: decimal_0
-    sql:${new_confirmed_7day_rolling} ;;
+    sql:avg${new_confirmed_7day_rolling} ;;
   }
 
   dimension: new_deaths_7day_rolling {
@@ -265,7 +265,7 @@ view: county_28d {
     label: "new_deaths_7day_rolling"
     type: number
     value_format_name: decimal_0
-    sql:${new_deaths_7day_rolling} ;;
+    sql:avg${new_deaths_7day_rolling} ;;
 
   }
   }
