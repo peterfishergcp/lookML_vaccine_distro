@@ -28,18 +28,23 @@ explore: hospital_general_info {
     type: left_outer
 
     sql_on: lower(${county_14d_grouped.county_name}) = lower(${hospital_general_info.county_name}) ;;
-
-
   }
-}
-
+  }
 
 explore: ca_healthcare_facilities {}
 explore: county_14d {}
 explore: county_14d_grouped {}
-explore: county_28d {}
+explore: county_28d{}
 explore: covid19_open_data {}
 explore: hostpitals_capacity {}
-explore: state_28d {}
+
+explore: state_28d {
+  join: county_28d {
+    relationship: one_to_many
+    sql_on: lower(${county_28d.state_name}) = lower(${state_28d.state_name});;
+    type: left_outer
+  }
+}
+
 explore: symptom_search_weekly_county {}
 explore: symptom_search_weekly_state {}
