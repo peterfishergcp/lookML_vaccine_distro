@@ -1,7 +1,7 @@
 # Partner Covid19 Dashboards - Examples
 
 Contributors to this Project:
-**Joseph Lei/Karteek Kotamsetty/Mike Snodgrass/Ranadheer Mettu/Peter Fisher**
+**Peter Fisher**
 
 
 This is set of Demo Dashboards and LookML that leverage BigQuery Public Covid19 Datasets.

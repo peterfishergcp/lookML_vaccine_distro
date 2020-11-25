@@ -36,8 +36,6 @@ explore: county_14d {}
 explore: county_14d_grouped {}
 explore: county_28d{}
 explore: covid19_open_data {}
-explore: hostpitals_capacity {}
-
 explore: state_28d {
   join: county_28d {
     relationship: one_to_many
@@ -45,6 +43,5 @@ explore: state_28d {
     type: left_outer
   }
 }
-
 explore: symptom_search_weekly_county {}
 explore: symptom_search_weekly_state {}
