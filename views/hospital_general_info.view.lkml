@@ -130,7 +130,9 @@ view: hospital_general_info {
 
   dimension: state {
     type: string
-    sql: ${TABLE}.state ;;
+    map_layer_name: us_states
+    drill_fields: [county_name]
+   sql: ${TABLE}.state ;;
   }
 
   dimension: timeliness_of_care_national_comparison {
