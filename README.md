@@ -7,11 +7,41 @@ Contributors to this Project:
 This is set of Demo Dashboards and LookML that leverage BigQuery Public Covid19 Datasets.
 These can be used for demo purposes, and they can be used as examples of "how to code" to build highly effective Looker dashboards.
 
-The main table we use "bigquery-public-data.covid19_public_forecasts.county_14d" which is where Google publishes its 14 Day forecast of covid19 cases.
+The main BigQuery Dataset we use is "bigquery-public-data:covid19_public_forecasts" which is where Google publishes its 14 and 28 Day forecast of covid19 cases.
 
-We designed two Looker dashboards, one that starts at the US Level that can be filtered by State, that can then Drill Down into the State and County level detail. The drill down feature is passing State Parameter to the County Dashboard. So this is an example of report to report linking, which is a common requirements in dashboards deployments.
+We designed three Looker dashboards, Partner COVID-19 Public Forecasts - State, Partner COVID 19 Public Forecast by County, Partner COVID 19 Public Forecast Vaccine Capacity
 
-Another great feature is when you right mouse click on the Us Map and select a State, you will see that you can drill down into County, which gives you a preview of the County Cases without having to leave the dashboard, as well it has drill out features, that take you a more detailed State Dashboard. You can also drill out to external systems or to external sources like Google News. Both cases are examples of passing state as a parameter to another dashboard, and to an external website.
+
+
+The Partner COVID-19 Public Forecasts - State is typically were we start. We provided several high level metrics that compute the prior day metrics.
+Confirmed Cases, and Deaths are using custom fields to calculate the prior day total, and display the delta beneath the current day value.
+
+We also included two graphs that display the Google 28 day COVID Forecast for New Cases, and Deaths. These two charts, displaying the actual cases, and then 3 forecast lines, which represent the ML predicted forecast in RED, and the Upper (in Green) and Lower (in Yellow) Bounds of that forecast.
+
+
+Next, we right-mouse click on a particular state on US Map Graph and you see in the popup window that you can drill down into County, (which gives you a preview of the County Cases without having to leave the dashboard), and it has drill out options as well.  Under Links, you can select the State Specific Dashboard which will take you to another dashboard that has State and County level information. You can also drill out to external systems or to external sources like Google News.
+
+The drill down to County information without leaving the dashboard is a great feature for users, where you can not only preview the data, but you can also explore if you need to drill into all the data behind that chart.
+
+And the two drill out use cases are examples of passing state as a parameter to another dashboard, and to an external website, which are common use cases.
+
+Key Messaging to think about when presenting Looker - Drive better outcomes through smarter data-driven experiences. Which means putting data where you work. So drilling down into detail without leaving a dashboard and drilling out to other systems are great examples how Looker provides a better data-driven experience for the users.
+
+The four Looker main pillars:
+
+Modern BI & analytics
+Serve up real-time dashboards for more in-depth, consistent analysis. Access to trustworthy data enables teams to collect fresh results for more precise reporting.
+
+Integrated insights
+Enhance the tools you’re already using by infusing new, relevant data. Unify and empower your teams to make more effective, data-informed decisions.
+
+Data-driven workflows
+Invigorate your workflows with fresh, reliable data. Looker gives teams unified access to the answers they need to drive successful outcomes.
+
+Custom applications
+Create custom apps that deliver data experiences as unique as your business. Looker's ability to embedded analytics, delivers data where they need it and helps them to get the job done.
+
+
 
 You can find how we did this in the County_14d view, where you can see the lookML model that we used for the specific dimension: state_name
 
@@ -118,7 +148,3 @@ ORDER BY date
 To get a daily forecast, we can create a script out of the two queries. This is as simple as writing the two SQL statements one after the other, making sure to end the first one with a semicolon. Then, click on “Schedule query” to run this every day:
 
 ![BigQuery Schedule](https://miro.medium.com/max/1050/0*NgNnCDVxqctsYhs_)
-
-
-The step 2 in the model, is to create a table that holds the results of the model comparison against actual cases.
-I created a view based on numreports_forecast that can be exposed to
